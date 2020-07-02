@@ -18,11 +18,13 @@ nnoremap <localleader>sv :source $MYVIMRC<cr>
 nnoremap H ^
 nnoremap L $
 " inactivate up and down arrow in normal mode
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
+nnoremap <Up> :execute "leftabove split ".bufname("#")<cr>
+nnoremap <Down> :execute "rightbelow split ".bufname("#")<cr>
+nnoremap <Left> :execute "leftabove vsplit ".bufname("#")<cr>
+nnoremap <Right> :execute "rightbelow vsplit ".bufname("#")<cr>
 " change buffer with right and left arrow in normal mode
-nnoremap <Right> :bn<cr>
-nnoremap <Left> :bp<cr>
+nnoremap <localleader>n :bn<cr>
+nnoremap <localleader>p :bp<cr>
 " }}}
 " Auto complete ---------------------- {{{
 inoremap " ""<esc>i
@@ -43,8 +45,8 @@ iabbrev cins https://www.instagram.com/moh_eb79
 " Autocmd file specific ---------------------- {{{
 augroup filetype_lang
 autocmd!
-autocmd FileType python,shell nnoremap <localleader>c I#<space><esc>
-autocmd FileType javascript nnoremap <localleader>c I//<space><esc>
+autocmd FileType python,shell nnoremap <localleader>c mqI#<space><esc>`q
+autocmd FileType javascript nnoremap <localleader>c mqI//<space><esc>`q
 augroup END
 " }}}
 " Operating-Pending Mapping ---------------------- {{{
