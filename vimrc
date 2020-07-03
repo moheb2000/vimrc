@@ -1,9 +1,11 @@
 " General vimrc settings ---------------------- {{{
 set number
 set numberwidth=5
+set hlsearch incsearch
 set tabstop=4
 set foldlevelstart=0
 let maplocalleader=","
+colorscheme plasmid
 " }}}
 " normal mode mapping ---------------------- {{{
 " Select current word with space
@@ -17,7 +19,7 @@ nnoremap <localleader>sv :source $MYVIMRC<cr>
 " Go to the begining and end of current line wiht H and L
 nnoremap H ^
 nnoremap L $
-" inactivate up and down arrow in normal mode
+" Add maps for split page
 nnoremap <Up> :execute "leftabove split ".bufname("#")<cr>
 nnoremap <Down> :execute "rightbelow split ".bufname("#")<cr>
 nnoremap <Left> :execute "leftabove vsplit ".bufname("#")<cr>
@@ -25,6 +27,13 @@ nnoremap <Right> :execute "rightbelow vsplit ".bufname("#")<cr>
 " change buffer with right and left arrow in normal mode
 nnoremap <localleader>n :bn<cr>
 nnoremap <localleader>p :bp<cr>
+" Highlight two spaces for ERRORS
+nnoremap <localleader>w :match Error /\v  /<cr>
+nnoremap <localleader>W :match none<cr>
+" Add \v for search
+nnoremap <localleader>/ /\v
+" Clear search highlighting from the last one
+nnoremap <localleader>nh :nohlsearch<cr>
 " }}}
 " Auto complete ---------------------- {{{
 inoremap " ""<esc>i
