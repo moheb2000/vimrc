@@ -85,3 +85,19 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
+" Add a map and function for quickfix window ---------------------- {{{
+nnoremap <localleader>q :call QuickfixToggle()<cr>
+let g:quickfix_is_open=0
+function! QuickfixToggle()
+if g:quickfix_is_open
+cclose
+let g:quickfix_is_open=0
+execute g:current_window."wincmd w"
+else
+let g:current_window=winnr()
+copen
+let g:quickfix_is_open=1
+endif
+return
+endfunction
+" }}}
