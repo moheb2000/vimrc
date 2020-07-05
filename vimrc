@@ -1,3 +1,6 @@
+" Add pathogen plagun ---------------------- {{{
+execute pathogen#infect()
+" }}}
 " General vimrc settings ---------------------- {{{
 set number
 set numberwidth=5
@@ -100,4 +103,7 @@ let g:quickfix_is_open=1
 endif
 return
 endfunction
+" }}}
+" Add F5 map for run programming languages with runlangs bashscript ---------------------- {{{
+nnoremap <F5> :execute "!runlangs ".expand('%')<cr>
 " }}}
