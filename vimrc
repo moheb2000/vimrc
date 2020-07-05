@@ -23,10 +23,10 @@ nnoremap <localleader>sv :source $MYVIMRC<cr>
 nnoremap H ^
 nnoremap L $
 " Add maps for split page
-nnoremap <Up> :execute "leftabove split ".bufname("#")<cr>
-nnoremap <Down> :execute "rightbelow split ".bufname("#")<cr>
-nnoremap <Left> :execute "leftabove vsplit ".bufname("#")<cr>
-nnoremap <Right> :execute "rightbelow vsplit ".bufname("#")<cr>
+nnoremap <localleader><Up> :execute "leftabove split ".bufname("#")<cr>
+nnoremap <localleader><Down> :execute "rightbelow split ".bufname("#")<cr>
+nnoremap <localleader><Left> :execute "leftabove vsplit ".bufname("#")<cr>
+nnoremap <localleader><Right> :execute "rightbelow vsplit ".bufname("#")<cr>
 " change buffer with right and left arrow in normal mode
 nnoremap <localleader>n :bn<cr>
 nnoremap <localleader>p :bp<cr>
