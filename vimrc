@@ -2,6 +2,7 @@
 execute pathogen#infect()
 " }}}
 " General vimrc settings ---------------------- {{{
+syntax on
 set number
 set numberwidth=5
 set hlsearch incsearch
