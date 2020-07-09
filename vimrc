@@ -59,6 +59,7 @@ iabbrev cins https://www.instagram.com/moh_eb79
 augroup filetype_lang
 autocmd!
 autocmd FileType python,shell nnoremap <localleader>c mqI#<space><esc>`q
+autocmd FileType python,shell nnoremap <localleader>nc mq0xx`q
 autocmd FileType javascript nnoremap <localleader>c mqI//<space><esc>`q
 augroup END
 " }}}
