@@ -6,13 +6,20 @@ syntax on
 set number
 set numberwidth=5
 set hlsearch incsearch
+set nocp
 set tabstop=4
 set expandtab
 set softtabstop=4
 set shiftwidth=4
 set foldlevelstart=0
+set pastetoggle=<F2>
 let maplocalleader=","
 colorscheme plasmid
+" }}}
+" set autoindent for vim ---------------------- {{{
+set autoindent
+set cindent
+set si
 " }}}
 " normal mode mapping ---------------------- {{{
 " Select current word with space
@@ -114,4 +121,26 @@ endfunction
 " }}}
 " Add F5 map for run programming languages with runlangs bashscript ---------------------- {{{
 nnoremap <F5> :execute "!runlangs ".expand('%')<cr>
+" }}}
+
+" Add some plugin to vim  ---------------------- {{{
+" autocomplpop setting
+set omnifunc=syntaxcomplete " This is necessary for acp plugin
+let g:acp_behaviorKeywordLength = 1 "  Length of keyword characters before the cursor, which are needed to attempt keyword completion
+"indentLine 
+let g:indentLine_char = '.'
+" NERDTree plugin setting
+
+"toggle showing NERDTree with F9
+:map <F9> :NERDTreeToggle<CR><esc><esc>
+
+"open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Open file in new tab with ctrl + t
+:let NERDTreeMapOpenInTab='<c-t>'
 " }}}
