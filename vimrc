@@ -46,7 +46,10 @@ inoremap ` ``<esc>i
 inoremap ( ()<esc>i
 inoremap [ []<esc>i
 inoremap { {}<esc>i
-inoremap < <><esc>i
+augroup html_complete
+autocmd!
+autocmd FileType html inoremap < <><esc>i
+augroup END
 " }}}
 " Abbrevations  ---------------------- {{{
 iabbrev @@ moh.ebrahimi@gmail.com
